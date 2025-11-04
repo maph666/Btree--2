@@ -16,6 +16,23 @@ void BinaryTree::insert(Node*& node, int value) {
     }
 }
 
+BinaryTree::~BinaryTree() {
+    destroy(root);
+}
+
+void BinaryTree::destroy(Node* node) {
+    if (!node) return;
+    destroy(node->left);
+    destroy(node->right);
+    delete node;
+}
+
+void BinaryTree::clear() {
+    destroy(root);
+    root = nullptr;
+}
+
+
 std::vector<int> BinaryTree::inOrderTraversal() const {
     std::vector<int> result;
     inOrder(root, result);
