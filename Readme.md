@@ -8,3 +8,5 @@
 ##### En Orden, Preorden y Posorden
 ### Desplegado
 ### Busqueda
+
+![Árbol Binario](img/arbol.png "Ejemplo de un árbol binario")
