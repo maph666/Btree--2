@@ -9,4 +9,4 @@
 ### Desplegado
 ### Busqueda
 
-![Árbol Binario](img/arbol.png "Ejemplo de un árbol binario")
+![Árbol Binario](img/Arbol.png "Ejemplo de un árbol binario")
