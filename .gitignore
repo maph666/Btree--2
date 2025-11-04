@@ -1,0 +1,21 @@
+# Qt-specific
+*.pro.user
+*.pro.user.*
+*.qmake.stash
+moc_*.cpp
+qrc_*.cpp
+ui_*.h
+Makefile*
+*build-*
+debug/
+release/
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Visual Studio specific
+.vs/
+*.user
