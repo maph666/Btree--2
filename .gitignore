@@ -9,7 +9,7 @@ Makefile*
 *build-*
 debug/
 release/
-
+build
 # Compiled Object files
 *.slo
 *.lo
