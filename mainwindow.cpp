@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButtonPreOrder, &QPushButton::clicked, this, &MainWindow::on_pushButtonPreOrder_clicked);
     connect(ui->pushButtonPostOrder, &QPushButton::clicked, this, &MainWindow::on_pushButtonPostOrder_clicked);
     connect(ui->pushButtonSearch, &QPushButton::clicked, this, &MainWindow::on_pushButtonSearch_clicked);
+    connect(ui->pushButtonDelete, &QPushButton::clicked, this, &MainWindow::on_pushButtonDelete_clicked);
     // Insertar valores de ejemplo
     tree.insert(50);
     tree.insert(30);
@@ -71,6 +72,15 @@ void MainWindow::on_pushButtonSearch_clicked() {
     }
 }
 
+void MainWindow::on_pushButtonDelete_clicked() {
+    bool ok;
+    int value = ui->lineEditDelete->text().toInt(&ok);
+    if (ok) {
+        tree.remove(value);
+        ui->lineEditDelete->clear();
+        update();  // Redibuja el árbol
+    }
+}
 
 void MainWindow::paintEvent(QPaintEvent *) {
     QPainter painter(this);

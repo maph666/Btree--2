@@ -25,7 +25,7 @@ public:
     std::vector<int> preOrderTraversal() const;
     std::vector<int> postOrderTraversal() const;
     bool search(int value) const;
-
+    void remove(int value);
     ~BinaryTree();  // Destructor
     void clear();   // Método público opcional para limpiar el árbol
 
@@ -38,6 +38,9 @@ private:
     void postOrder(Node* node, std::vector<int>& result) const;
     bool search(Node* node, int value) const;
     void destroy(Node* node);  // Función recursiva para liberar nodos
+    void remove(Node*& node, int value);
+    Node* findMin(Node* node);
+
 
 
 

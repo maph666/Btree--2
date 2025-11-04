@@ -33,7 +33,7 @@ private slots:
     void on_pushButtonPreOrder_clicked();     // ← nuevo
     void on_pushButtonPostOrder_clicked();    // ← nuevo
     void on_pushButtonSearch_clicked();
-
+    void on_pushButtonDelete_clicked();
 
 
 

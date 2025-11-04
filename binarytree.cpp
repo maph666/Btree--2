@@ -32,6 +32,43 @@ void BinaryTree::clear() {
     root = nullptr;
 }
 
+void BinaryTree::remove(int value) {
+    remove(root, value);
+}
+
+void BinaryTree::remove(Node*& node, int value) {
+    if (!node) return;
+
+    if (value < node->value) {
+        remove(node->left, value);
+    } else if (value > node->value) {
+        remove(node->right, value);
+    } else {
+        // Nodo encontrado
+        if (!node->left && !node->right) {
+            delete node;
+            node = nullptr;
+        } else if (!node->left) {
+            Node* temp = node;
+            node = node->right;
+            delete temp;
+        } else if (!node->right) {
+            Node* temp = node;
+            node = node->left;
+            delete temp;
+        } else {
+            Node* minNode = findMin(node->right);
+            node->value = minNode->value;
+            remove(node->right, minNode->value);
+        }
+    }
+}
+
+Node* BinaryTree::findMin(Node* node) {
+    while (node && node->left)
+        node = node->left;
+    return node;
+}
 
 std::vector<int> BinaryTree::inOrderTraversal() const {
     std::vector<int> result;
