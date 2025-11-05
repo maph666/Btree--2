@@ -6,7 +6,7 @@
 ### Insercion
 ### Recorrido
 ##### En Orden, Preorden y Posorden
-### Desplegado
+### Desplegadogit 
 ### Busqueda
 
 ![Árbol Binario](img/Arbol.png "Ejemplo de un árbol binario")

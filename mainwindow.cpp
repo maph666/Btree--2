@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include <QMessageBox>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButtonInOrder, &QPushButton::clicked, this, &MainWindow::on_pushButtonInOrder_clicked);
     connect(ui->pushButtonPreOrder, &QPushButton::clicked, this, &MainWindow::on_pushButtonPreOrder_clicked);
     connect(ui->pushButtonPostOrder, &QPushButton::clicked, this, &MainWindow::on_pushButtonPostOrder_clicked);
-    connect(ui->pushButtonSearch, &QPushButton::clicked, this, &MainWindow::on_pushButtonSearch_clicked);
+  //  connect(ui->pushButtonSearch, &QPushButton::clicked, this, &MainWindow::on_pushButtonSearch_clicked);
     connect(ui->pushButtonDelete, &QPushButton::clicked, this, &MainWindow::on_pushButtonDelete_clicked);
     // Insertar valores de ejemplo
     tree.insert(50);
@@ -63,12 +63,17 @@ void MainWindow::on_pushButtonSearch_clicked() {
     if (ok) {
         bool found = tree.search(value);
         if (found) {
-            ui->labelSearchResult->setText("✅ Valor encontrado en el árbol");
+            QMessageBox::warning(this, "Resultado de búsqueda", "✅ Valor encontrado en el árbol");
+            ui->lineEditSearch->clear();
+          //  ui->labelSearchResult->setText("✅ Valor encontrado en el árbol");
         } else {
-            ui->labelSearchResult->setText("❌ Valor no encontrado");
+            //ui->labelSearchResult->setText("❌ Valor no encontrado");
+            QMessageBox::warning(this, "Resultado de búsqueda", "❌ Valor no encontrado");
+            ui->lineEditSearch->clear();
         }
     } else {
-        ui->labelSearchResult->setText("⚠️ Ingresa un número válido");
+        //ui->labelSearchResult->setText("⚠️ Ingresa un número válido");
+        QMessageBox::warning(this, "Entrada inválida", "⚠️ Ingresa un número válido");
     }
 }
 
